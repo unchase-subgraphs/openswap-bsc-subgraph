@@ -1,0 +1,41 @@
+specVersion: 0.0.1
+schema:
+  file: ./schema.graphql
+dataSources:
+  - kind: ethereum
+    name: Factory
+    network: bsc
+    source:
+      address: "0x0625468f8F56995Ff1C27EB6FD44ac90E96C5D22"
+      abi: Factory
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.5
+      language: wasm/assemblyscript
+      entities:
+        - PairCreated
+        - PairRestarted
+        - PairShutdowned
+        - ParamSet
+        - ParamSet2
+        - Restarted
+        - Shutdowned
+      abis:
+        - name: Factory
+          file: ./abis/Factory.json
+      eventHandlers:
+        - event: PairCreated(indexed address,indexed address,address,uint256)
+          handler: handlePairCreated
+        - event: PairRestarted(indexed address)
+          handler: handlePairRestarted
+        - event: PairShutdowned(indexed address)
+          handler: handlePairShutdowned
+        - event: ParamSet(bytes32,bytes32)
+          handler: handleParamSet
+        - event: ParamSet2(bytes32,bytes32,bytes32)
+          handler: handleParamSet2
+        - event: Restarted()
+          handler: handleRestarted
+        - event: Shutdowned()
+          handler: handleShutdowned
+      file: ./src/factory.ts
