@@ -1,4 +1,4 @@
-specVersion: 0.0.4
+specVersion: 0.0.5
 description: OpenSwap is a next generation DEX, offering innovative swapping and liquidity solutions to enable DeFi users to efficiently and effectively swap and provide liquidity in the growing multi-chain landscape.
 repository: https://github.com/unchase-subgraphs/openswap-bsc-subgraph
 schema:
@@ -13,7 +13,7 @@ dataSources:
       startBlock: 9397641
     mapping:
       kind: ethereum/events
-      apiVersion: 0.0.6
+      apiVersion: 0.0.7
       language: wasm/assemblyscript
       entities:
         - Pair
@@ -39,7 +39,7 @@ templates:
       abi: Pair
     mapping:
       kind: ethereum/events
-      apiVersion: 0.0.6
+      apiVersion: 0.0.7
       language: wasm/assemblyscript
       file: ./src/core.ts
       entities:
